@@ -94,7 +94,7 @@ const saveTask = async event => {
   } else if (event.keyCode === 27) {
     value = task.value;
   }
-  
+
   task.text = value;
   await updateTasksInLocalStorage(tasks);
   target.textContent = value;
@@ -238,8 +238,11 @@ const render = async () => {
 
 const getAllTasks = async () => {
   const tasks = await localStorage.getItem('tasks');
-  const tasksJson = await JSON.parse(tasks);
-  return tasksJson.map(task => new Task(task));
+  if (tasks) {
+    const tasksJson = await JSON.parse(tasks);
+    return tasksJson.map(task => new Task(task));
+  }
+  return [];
 };
 
 const getTasks = async () => {
@@ -269,7 +272,7 @@ const getInProgressTasks = async () => {
   const inProgress = allTasks.filter(task => !task.done);
   const sort = localStorage.getItem('open-select-sort');
   const result = sort ? sortTasks(inProgress, sort) : inProgress;
-  console.log(result);
+  console.debug(result);
   return result;
 };
 
@@ -278,7 +281,7 @@ const getDoneTasks = async () => {
   const done = allTasks.filter(task => task.done);
   const sort = localStorage.getItem('done-select-sort');
   const result = sort ? sortTasks(done, sort) : done;
-  console.log(result);
+  console.debug(result);
   return result;
 };
 
