@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-  <head>
-    <title>HTML + JS boilerplate project</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  </head>
-  <body>
-    <div>Hello, world</div>
-  </body>
+
+<head>
+  <title>HTML + JS boilerplate project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+</head>
+
+<body>
+  <header class="tdl-full-width tdl-header">
+    <div class="tdl-row-container tdl-align-center-container tdl-header-container" style="position: relative;">
+      <div class="tdl-header-title-wrapper">
+        <span class="tdl-header-title">Todo List</span>
+      </div>
+      <div class="tdl-header-search-container">
+        <input class="tdl-no-border tdl-header-search" id="search-input" type="text" placeholder="Search...">
+        <button class="tdl-header-search-icon" id="search-icon"><img src="./images/ic_search_24px.svg" /></button>
+      </div>
+    </div>
+  </header>
+  <main class="tdl-column-container tdl-align-center-container tdl-main-container">
+    <div class="tdl-row-container tdl-align-center-container tdl-full-width tdl-main-new-task-container">
+      <div class="tdl-no-border tdl-main-new-task">
+        <input class="tdl-full-width tdl-no-border tdl-main-new-task-input" id="new-task" type="text"
+          placeholder="New task...">
+      </div>
+      <div class="tdl-column-container tdl-align-center-container tdl-main-new-task-button">
+        <button class="tdl-main-new-task-button-add" id="new-task-button" type="button">Add</button>
+      </div>
+    </div>
+
+    <div class="tdl-column-container tdl-align-center-container tdl-full-width tdl-main-tasks">
+      <div class="tdl-row-container tdl-full-width tdl-align-center-container">
+        <div class="tdl-full-width tdl-main-task-list-header-title-wrapper">
+          <span>Open</span>
+        </div>
+        <div class="tdl-full-width tdl-main-task-list-header-sort-wrapper">
+          <select class="tdl-full-width tdl-no-border tdl-main-task-list-header-sort-select" id="open-select-sort">
+            <option value="asc-creationDate">Date creation (Asc)</option>
+            <option value="desc-creationDate">Date creation (Desc)</option>
+            <option value="asc-text">Text (Asc)</option>
+            <option value="desc-text">Text (Desc)</option>
+          </select>
+        </div>
+      </div>
+      <div class="tdl-column-container tdl-full-width tdl-main-task-list" id="open-list">
+      </div>
+      <div class="tdl-main-task-list-clear">
+        <span id="clear-open">Clear "Open" list</span>
+      </div>
+    </div>
+
+    <div class="tdl-column-container tdl-align-center-container tdl-full-width tdl-main-tasks">
+      <div class="tdl-row-container tdl-full-width tdl-align-center-container">
+        <div class="tdl-full-width tdl-main-task-list-header-title-wrapper">
+          <span>Done</span>
+        </div>
+        <div class="tdl-full-width tdl-main-task-list-header-sort-wrapper">
+          <select class="tdl-full-width tdl-no-border tdl-main-task-list-header-sort-select" id="done-select-sort">
+            <option value="asc-doneDate">Date completion (Asc)</option>
+            <option value="desc-doneDate">Date completion (Desc)</option>
+            <option value="asc-text">Text (Asc)</option>
+            <option value="desc-text">Text (Desc)</option>
+          </select>
+        </div>
+      </div>
+      <div class="tdl-column-container tdl-full-width tdl-main-task-list" id="done-list">
+      </div>
+      <div class="tdl-main-task-list-clear">
+        <span id="clear-done">Clear "Done" list</span>
+      </div>
+    </div>
+
+
+    <div class="tdl-row-container tdl-align-center-container tdl-full-width tdl-main-task-list-item-container tdl-hidden"
+      id="hidden-item">
+    </div>
+
+    <div class="tdl-main-task-list-item-checkbox-wrapper tdl-align-center-container tdl-column-container tdl-hidden"
+      id="hidden-item-checkbox"> 
+      <label class="tdl-main-task-list-checkbox">
+          <input class="tdl-hidden-checkbox" type="checkbox">
+          <span class="tdl-checkbox"></span>
+        </label>
+    </div>
+
+    <div class="tdl-main-task-list-item-text-wrapper tdl-hidden" id="hidden-item-text">      
+    </div>
+
+    <div class="tdl-column-container tdl-align-center-container tdl-main-task-list-item-date tdl-hidden"
+      id="hidden-item-dates">
+    </div>
+
+    <div class="tdl-main-task-list-item-delete tdl-hidden" id="hidden-item-delete">
+      <button class="tdl-main-task-list-item-delete-button"><img src="./images/ic_delete_24px.svg" /></button>
+    </div>
+
+    <input class="tdl-full-width tdl-no-border tdl-main-task-list-item-text-input tdl-hidden" type="text" id="hidden-item-text-input">
+  </main>
+</body>
+
 </html>
